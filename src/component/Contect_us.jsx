@@ -13,7 +13,7 @@ const Contect_us = () => {
             
         </div>
 
-        <div className="flex justify-around mt-28 ">
+        <div className="md:flex justify-around mt-28 space-y-4 md:space-y-0 ">
           <div className="flex space-x-7 w-3/12 ">
             <div>
               <IoIosArrowDropright className="text-5xl" />

@@ -38,7 +38,6 @@ const Feq_page = () => {
 
                   <div className="mt-8">
                   <input type="search" className="border-2 py-3 px-6" placeholder="Enter your keyword..." value="" name="s" title="Search for:" />
-                 
                   </div>
                 
                 </div>

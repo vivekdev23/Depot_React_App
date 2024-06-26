@@ -1,20 +1,17 @@
 import { IoMdArrowDropdown } from "react-icons/io";
-
-import img_1 from "/src/assets/BW_Handale.jpeg";
-import img_2 from "/src/assets/F_Vase.jpeg";
-import img_3 from "/src/assets/Deco_Ass.jpeg";
-import img_4 from "/src/assets/Clock.jpeg";
-import img_5 from "/src/assets/NewsPaper.jpeg";
-import img_6 from "/src/assets/Pottry_V.jpeg";
-import img_7 from "/src/assets/Rose_H.jpeg";
-import img_8 from "/src/assets/Table_Lamp.jpeg";
-
+import { FaHeart } from "react-icons/fa6";
+import { useSelector, useDispatch } from "react-redux";
+import { ProductList } from "../Redux/productRedux/productAction";
+import { useEffect } from "react";
+import { addToCart } from "../Redux/cartAction";
+import { addToWishlist } from "../Redux/WhishlistRedux/WishAction";
 
 const Product_Home = () => {
+
   return (
     <>
       <div className=" bg-white pt-10 px-16 ">
-        <div className="flex justify-between">
+        <div className="md:flex md:justify-between">
           <div>
             <ul className="flex space-x-9 text-sm text-gray-400  font-medium ">
               <li className="text-black ">ALL</li>
@@ -30,85 +27,61 @@ const Product_Home = () => {
             <IoMdArrowDropdown className="mt-1 text-xl" />
           </div>
         </div>
-        <Card_Home/>
+        <Card_Home />
       </div>
     </>
   );
 };
 
-export const Card_Home = ( ) => {
+export const Card_Home = () => {
+  const dispatch = useDispatch();
+  const shopData = useSelector((state) => state.product);
+
+  useEffect(() => {
+    dispatch(ProductList());
+  }, []);
+
   return (
-    <div>
+    <div className="grid grid-cols-1 place-items-center-center  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-5">
+      {shopData
+        .flat()
+        .slice(0, 8)
+        .map((item) => {
+          return (
+            <div key={item.id} className="box">
+              <div className="relative group overflow-hidden">
+                <img
+                  src={item.image}
+                  alt=""
+                  className=" w-full h-72 object-cover "
+                />
+                <div className="flex absolute bottom-0 w-full justify-center opacity-0 group-hover:opacity-100 translate-y-6 group-hover:-translate-y-0 group-hover:duration-300">
+                  <h1 className="flex text-[12px] px-4 bg-black text-white justify-center py-1 font-semibold">
+                    QUICK LOOK
+                  </h1>
+                  <button className="bg-gray-500 p-1 " onClick={() => dispatch(addToWishlist(item))}>
+                    <FaHeart className="text-white text-sm" />
+                  </button>
+                </div>
+              </div>
 
-      <div className="grid grid-cols-4  gap-16 pt-10">
+              <h5 className="text-center mt-4 font-semibold">{item.title}</h5>
 
-        <div className="box reletive ">
-          <img src={img_1} alt="" />
-          <h5 className="text-center mt-4 font-semibold">BASKET WITH HANDLES</h5>
-          <p className="text-gray-400 text-lg text-center mt-1 pri ">$160</p>
-          <button className=" text-gray-400 text-lg text-center mt-1 Add">Add To Card</button>  
-        </div>
+              <div className="flex justify-center pri">
+                <p className="text-gray-400 text-lg ">${item.price}</p>
+              </div>
 
-        <div className="box">
-          <img src={img_2} alt="" />
-          <h5 className="text-center mt-4 font-semibold">FLOWER VASE</h5>
-          <p className="text-gray-400 text-lg text-center mt-1 pri"><del className="me-2">$210</del>$170</p>
-          <p className=" text-gray-400 text-lg text-center mt-1 Add">Add To Card</p>  
-
-        </div>
-
-        <div className="box">
-          <img src={img_3} alt="" />
-          <h5 className="text-center mt-4 font-semibold">DECO ACCESSORY</h5>
-          <p className="text-gray-400 text-lg text-center mt-1 pri">$15</p>
-          <p className=" text-gray-400 text-lg text-center mt-1 Add">Add To Card</p>  
-
-
-        </div>
-
-        <div className="box">
-          <img src={img_4} alt="" />
-          <h5 className="text-center mt-4 font-semibold">WALL CLOCK</h5>
-          <p className="text-gray-400 text-lg text-center mt-1 pri">$110</p>
-          <p className=" text-gray-400 text-lg text-center mt-1 Add">Add To Card</p>  
-
-        </div>
-
-        <div className="box">
-          <img src={img_5} alt="" />
-          <h5 className="text-center mt-4 font-semibold">NEWSPAPER STORAGE</h5>
-          <p className="text-gray-400 text-lg text-center mt-1 pri">$90</p>
-          <p className=" text-gray-400 text-lg text-center mt-1 Add">Add To Card</p>  
-
-        </div>
-
-        <div className="box">
-          <img src={img_6} alt="" />
-          <h5 className="text-center mt-4 font-semibold">POTTERY VASE</h5>
-          <p className="text-gray-400 text-lg text-center mt-1 pri">$60</p>
-          <p className=" text-gray-400 text-lg text-center mt-1 Add">Add To Card</p>  
-
-        </div>
-
-        <div className="box">
-          <img src={img_7} alt="" />
-          <h5 className="text-center mt-4 font-semibold">ROSE HOLDBACK</h5>
-          <p className="text-gray-400 text-lg text-center mt-1 pri"><del className="me-2">$30</del>$24</p>
-          <p className=" text-gray-400 text-lg text-center mt-1 Add">Add To Card</p>  
-
-        </div>
-
-        <div className="box">
-          <img src={img_8} alt="" />
-          <h5 className="text-center mt-4 font-semibold">TABLE LAMP</h5>
-          <p className="text-gray-400 text-lg text-center mt-1 pri">$240</p>
-          <p className=" text-gray-400 text-lg text-center mt-1 Add">Add To Card</p>  
-
-
-        </div>
-
-      </div>
-
+              <div className="text-center flex justify-center">
+                <button
+                  className="text-gray-400 text-base font-medium mt-1 Add"
+                  onClick={() => dispatch(addToCart(item))}
+                >
+                  Add To Card
+                </button>
+              </div>
+            </div>
+          );
+        })}
     </div>
   );
 };
