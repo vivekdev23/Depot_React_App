@@ -31,7 +31,7 @@ console.log("Cartamount", amount);
         </div>
 
         <div>
-          <ul className="flex space-x-10">
+          <ul className="md:flex hidden space-x-10 ">
             <li className="">
               <Link
                 to="/"

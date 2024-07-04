@@ -43,7 +43,8 @@ export const Card_Home = () => {
 
   return (
     <div className="grid grid-cols-1 place-items-center-center  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-5">
-      {shopData
+      {
+      shopData
         .flat()
         .slice(0, 8)
         .map((item) => {
@@ -60,7 +61,7 @@ export const Card_Home = () => {
                     QUICK LOOK
                   </h1>
                   <button className="bg-gray-500 p-1 " onClick={() => dispatch(addToWishlist(item))}>
-                    <FaHeart className="text-white text-sm" />
+                    <FaHeart className="text-white text-sm active:text-red-600"/>
                   </button>
                 </div>
               </div>

@@ -17,7 +17,7 @@ const Wishlist = () => {
     <div>
       <div className="mx-auto md:mx-0">
         <div className="flex justify-center items-center  bg-gray-100 h-96">
-          <h1 className="text-6xl text-center text-black font-bold">
+          <h1 className="text-5xl tracking-wider text-center text-black font-semibold">
             WISHLIST
           </h1>
         </div>
@@ -43,7 +43,9 @@ const Wishlist = () => {
               </button>
             </div>
           </div>
+
         ) : (
+
           // map function here
           <>
            

@@ -30,7 +30,7 @@ const LeftSide = () => {
           </div>
         </div>
       </div>
-      <div className="flex">
+      <div className="md:flex">
         <div className="p-12 text-md text-gray-500 hidden sm:hidden md:block w-3/12">
           <h2 className="text-md text-black ">COLOR</h2>
           <ul className="mt-4 space-y-1">
@@ -80,7 +80,7 @@ const LeftSide = () => {
 
             {/* card stating  */}
 
-            <div className="grid grid-cols-1 place-items-center-center  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-10 ">
+            <div className="grid grid-cols-1 place-items-center-center  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 mt-10 ">
               {/* Map Method  */}
 
               {
@@ -91,14 +91,14 @@ const LeftSide = () => {
                       <img
                         src={item.image}
                         alt=""
-                        className="w-full h-72 object-cover"
+                        className="w-full  md:h-72 object-cover"
                       />
                       <div className="flex absolute bottom-0 w-full justify-center opacity-0 group-hover:opacity-100 translate-y-6 group-hover:-translate-y-0 group-hover:duration-300 ">
                         <h1 className="flex text-[12px] px-3 bg-black text-white justify-center  font-semibold">
                           QUICK LOOK
                         </h1>
                         <button className="bg-gray-500 p-1" onClick={() => dispatch(addToWishlist(item))}>
-                          <FaHeart className="text-white text-sm" />
+                          <FaHeart className="text-white text-sm active:text-red-600" />
                         </button>
                       </div>
                     </div>

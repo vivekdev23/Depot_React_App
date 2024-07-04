@@ -20,7 +20,7 @@ const Feq_page = () => {
 
               <div className="flex justify-between gap-12">
 
-                <div className=" w-3/12">
+                <div className=" w-3/12 hidden md:block">
                   
                   <h1 className="text-2xl font-bold tracking-wider">FREQUENTLY ASKED QUESTIONS</h1>
                   <p className="text-gray-400 text-lg font-light mt-4">Successful brands get into the mind slowly. A blurb in a magazine. A mention in a newspaper. A comment from a friend. A display in a retail</p>
@@ -42,7 +42,7 @@ const Feq_page = () => {
                 
                 </div>
 
-                <div className=" w-3/4 space-y-10">
+                <div className=" w-full md:w-3/4 space-y-10">
 
                   <div>
 
