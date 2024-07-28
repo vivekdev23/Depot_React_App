@@ -71,13 +71,7 @@ console.log("Cartamount", amount);
                  WishList 
 
                  {
-                   wishdata.length == 0 ? (
-                   <CiHeart className=" text-lg ms-1"/>
-                  ):(<>
-                  <FaHeart className="text-red-500 text-sm ms-1 mt-0.5"/>
-                  
-                    </>  
-                   )
+                   wishdata.length == 0 ? (<CiHeart className=" text-lg ms-1"/>):(<FaHeart className="text-red-500 text-sm ms-1 mt-0.5"/>)
                 }
                 
               </Link>

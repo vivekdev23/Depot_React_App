@@ -1,17 +1,24 @@
 import React from "react";
 import {
-  removeToWishlist,
-  emptyWishlist,
+  removeToWishlist
 } from "../Redux/WhishlistRedux/WishAction";
 import { useSelector, useDispatch } from "react-redux";
 // import { CiCircleRemove } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
+import {addToCart} from '../Redux/cartAction'
+import Wish_img from '../assets/Empty_Wish.png'
 
 const Wishlist = () => {
   const dispatch = useDispatch();
   const wishdata = useSelector((state) => state.wishlist);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
+
+
+  const WishlistAddToCart = (item) => {
+    dispatch(addToCart(item)); 
+    dispatch(removeToWishlist(item.id)); 
+  };
 
   return (
     <div>
@@ -29,7 +36,10 @@ const Wishlist = () => {
           // empty cart here
 
           <div>
-            <div className="mt-4 border border-gray-200  py-5 ">
+             <div className="flex justify-center">
+              <img src={Wish_img} alt="" className="w-96" />
+            </div>
+            <div className="mt-5 border border-gray-200  py-5 ">
               <h1 className=" m-0 text-center rounded-md text-black font-semibold text-2xl mx-auto">
                 YOUR WISHLIST IS CURRENTLY EMPTY.
               </h1>
@@ -85,7 +95,7 @@ const Wishlist = () => {
                             </td>
 
                             <td className="text-center font-normal text-gray-400">
-                              <button className=" rounded-md text-gray-600   font-medium mx-auto tracking-wider ">
+                              <button className=" rounded-md text-gray-600   font-medium mx-auto tracking-wider " onClick={() => WishlistAddToCart(item)}  >
                                 ADD TO CART
                               </button>
                             </td>
